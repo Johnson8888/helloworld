@@ -722,6 +722,7 @@ function submitGroupId() {
         const { GroupInfo:{ strGroupId }, strPin } = JSON.parse(g_data);
         if(!strGroupId) {
           const status = await openGroup();
+          $.log(status);
           if(status === 0) {
             await submitGroupId();
           } else {
@@ -762,7 +763,7 @@ function openGroup() {
     $.get(taskUrl(`user/OpenGroup`, `dwIsNewUser=${$.info.dwIsNewUser}`), async (err, resp, data) => {
       try {
         const { sErrMsg } = JSON.parse(data);
-        $.log(`\n【🏝寻宝大作战】${sErrMsg}\n${$.showLog ? data : ''}`);
+        $.log(`\n【🏝寻宝大作战1】${sErrMsg}\n${$.showLog ? data : ''}`);
         resolve(0);
       } catch (e) {
         $.logErr(e, resp);
